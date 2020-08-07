@@ -278,6 +278,7 @@ def convert_bbox_from_albumentations(bbox, target_format, rows, cols, check_vali
         raise ValueError(
             "Unknown target_format {}. Supported formats are: 'coco', 'pascal_voc' and 'yolo'".format(target_format)
         )
+    bbox = np.clip(bbox, a_min=0, a_max=1).tolist()
     if check_validity:
         check_bbox(bbox)
     bbox = denormalize_bbox(bbox, rows, cols)
