@@ -225,6 +225,8 @@ def convert_bbox_to_albumentations(bbox, source_format, rows, cols, check_validi
     if isinstance(bbox, np.ndarray):
         bbox = bbox.tolist()
 
+    print(bbox)
+
     if source_format == "coco":
         (x_min, y_min, width, height), tail = bbox[:4], tuple(bbox[4:])
         x_max = x_min + width
